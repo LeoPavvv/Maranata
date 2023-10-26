@@ -56,6 +56,35 @@ class Personaje:
       else:
           enemigo.morir()
 
+    def start():
+      ###Data de los atributos de guerrero         nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, espada, velocidad, mochila
+      guerrero = Guerrero("Kelius", 20, 10, 6, 100, 100, 8, 150, [2,2])
+
+      ###Data de los atributos de mago          nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, libro, velocidad, mochila
+      mago = Mago("Vanessa", 5, 30, 4, 75, 75, 3, 120, [2,1])
+
+      ###Data de los atributos de asesino       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
+      asesino = Asesino("Erzsébet", 30, 10, 4, 65, 65, 200, [1,2])
+
+      ###Data de los atributos de Tirador       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, critico, mochila
+      tirador = Tirador("Mr. Yaya",23, 8, 3, 60, 60, 210, 25, [3,1])
+
+      ###Data de los atributos de Tanque        nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, escudo, turnos, mochila
+      tanque = Tanque("Grogi", 11, 4, 15, 120, 120, 30, 25, 0, [2,1])
+
+      ###Data de los atributos de ladron        nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
+      ladron = Ladron("Francis", 15, 4, 5, 70, 70, 215, [2,1])      #roba stats
+
+      ###Data de los atributos de espinas       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
+      espinas = Espinas("Yushen", 15, 6, 7, 75, 75, 125, [3,3])
+
+      ###Data de los atributos de ninja         nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, katana, velocidad, mochila
+      ninja = Ninja("Lee shu", 20, 30, 9, 85, 85, 6, 145, [2,1] )
+
+      pjs = [guerrero, mago, asesino, tirador, tanque, ladron, espinas, ninja]
+
+      return Personaje.EleccionJuego(pjs)
+
     def verificaDefensa(pj, enemigo):                    #hace que el enemigo no pueda tener más defensa o igual que tu ataque, para hacer que siempre tengas la posibilidad de hacerle 3 de daño como minimo
       if enemigo.defensa >= (pj.fuerza - 3):
         enemigo.defensa = pj.fuerza - 3
@@ -802,7 +831,7 @@ class Ninja(Personaje):
       print("\n",enemigo.nombre,"ha esquivado el ataque de",pj.nombre)
 
 class Bombardero(Personaje):      
-  
+
   def __init__(self, nombre = "", fuerza = 0, inteligencia = 0, defensa = 0, vida = 0, vidaMaxima = 0,velocidad = 0, mochila = []):
     super().__init__(nombre, fuerza, inteligencia, defensa, vida, vidaMaxima,  velocidad, mochila)
 
@@ -867,36 +896,4 @@ class Bombardero(Personaje):
 
 
 
-
-###Data de los atributos de guerrero         nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, espada, velocidad, mochila
-guerrero = Guerrero("Kelius", 20, 10, 6, 100, 100, 8, 150, [2,2])
-
-###Data de los atributos de mago          nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, libro, velocidad, mochila
-mago = Mago("Vanessa", 5, 30, 4, 75, 75, 3, 120, [2,1])
-
-###Data de los atributos de asesino       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
-asesino = Asesino("Erzsébet", 30, 10, 4, 65, 65, 200, [1,2])
-
-###Data de los atributos de Tirador       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, critico, mochila
-tirador = Tirador("Mr. Yaya",23, 8, 3, 60, 60, 210, 25, [3,1])
-
-###Data de los atributos de Tanque        nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, escudo, turnos, mochila
-tanque = Tanque("Grogi", 11, 4, 15, 120, 120, 30, 25, 0, [2,1])
-
-###Data de los atributos de ladron        nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
-ladron = Ladron("Francis", 15, 4, 5, 70, 70, 215, [2,1])      #roba stats
-
-###Data de los atributos de espinas       nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, velocidad, mochila
-espinas = Espinas("Yushen", 15, 6, 7, 75, 75, 125, [3,3])
-
-###Data de los atributos de ninja         nombre, fuerza, inteligencia, defensa, vida, vidaMaxima, katana, velocidad, mochila
-ninja = Ninja("Lee shu", 20, 30, 9, 85, 85, 6, 145, [2,1] )
-
-pjs = [guerrero, mago, asesino, tirador, tanque, ladron, espinas, ninja]
-
-
-Personaje.EleccionJuego(pjs)
-
-#Personaje.EleccionJuego(pjs)
-#Personaje.PVP(guerrero, espinas)
-#Personaje.PVP(guerrero, ninja)
+Personaje.start()
